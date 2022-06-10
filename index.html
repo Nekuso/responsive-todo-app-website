@@ -6,9 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="assets/css/style.css">
         <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+        <script src="http://SortableJS.github.io/Sortable/Sortable.js"></script>
         <title>TODO APP</title>
     </head>
-    <body>
+    <body class="page">
 
         <div class="hero__img"></div>
 
@@ -16,10 +17,7 @@
             <!-- ====== HEADER TEXT ====== -->
             <div class="header__text">
                 <h2>TODO</h2>
-                <div class="dark__toggle">
-                    <i class='bx bx-moon'></i>
-                    <i class='bx bxs-sun' ></i>
-                </div>
+                <button class="dark__toggle"></button>
             </div>
 
             <!-- ====== INPUT ====== -->
@@ -30,32 +28,31 @@
 
             <!-- ====== TASK BOX ====== -->
             <ul class="task__box">
-                <li><label for=""><button class="check"></button><p>Style input the card</p></label><i class='bx bx-x'></i></li>
-                <li><label for=""><button class="check"></button><p>Style input the card</p></label><i class='bx bx-x'></i></li>
-                <li><label for=""><button class="check"></button><p>Style input the card</p></label><i class='bx bx-x'></i></li>
-                <li><label for=""><button class="check"></button><p>Style input the card</p></label><i class='bx bx-x'></i></li>
-                <div></div>
+
             </ul>
 
             <!-- ====== OPTIONS ====== -->
             <div class="options">
                 <div class="left__container">
-                    <span id="count">3</span>
+                    <span class="count">0</span>
                     <p>items left</p>
                 </div>
 
-                <span>Clear Completed</span>
+                <span class="clear__button">Clear Completed</span>
             </div>
 
             <!-- ====== CONTROLS ====== -->
             <div class="controls">
                 <div class="filters">
-                    <span id="all">All</span>
-                    <span id="pending" class="active">Active</span>
+                    <span id="all" class="active">All</span>
+                    <span id="pending">Active</span>
                     <span id="completed">Completed</span>
                 </div>
             </div>
+
+            <h2 class="dragMsg">Drag and drop reorder list</h2>
         </div>
-        
+
+        <script src="assets/js/main.js"></script>
     </body>
 </html>

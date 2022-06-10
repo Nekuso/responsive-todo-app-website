@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 
@@ -8,6 +9,8 @@ $VeryLightGrayishBlue: hsl(236 ,33% ,92% );
 $LightGrayishBlue: hsl(233 ,11% ,84% );
 $DarkGrayishBlue: hsl(236 ,9%, 61%) ;
 $VeryDarkGrayishBlue: hsl(235 ,19% ,35% );
+$activeLink: #2d54ad; 
+
 
 //DarkTheme
 
@@ -30,19 +33,95 @@ $VeryDarkGrayishBlue: hsl(237 ,14% ,26% );
 
 body {
     background: $LightGrayishBlue;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 100% 40%;
+    transform: .4s ease-in-out;
+    
+}
+
+.dark {
+    background: $VeryDarkBlue;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 100% 40%;
+    
+    .wrapper {
+        .header__text {
+            button {
+                background: url("../img/icon-sun.svg");
+            }
+        }
+
+        .task__input {
+            background: $VeryDarkDesaturatedBlue;
+
+            button {
+                border: 1px solid $DarkGrayishBlue;
+            }
+
+            input {
+                color: $VeryLightGray;
+            }
+        }
+
+        .task__box {
+            background: $VeryDarkDesaturatedBlue;
+            color: $DarkGrayishBlue;
+
+            li {
+                border-bottom: .5px solid $DarkGrayishBlue;
+            }
+
+            li:hover {
+                background: $VeryDarkGrayishBlue;
+            }
+        }
+
+        .options {
+            background: $VeryDarkDesaturatedBlue;
+
+            .clear__button:hover {
+                color: $VeryLightGrayishBlue;
+            }
+        }
+        
+        .controls {
+            .filters{
+                background: $VeryDarkDesaturatedBlue;
+            }
+        }
+    }
 }
 
 
 .wrapper {
-    max-width: 460px;
-    margin: 140px auto;
+    max-width: 340px;
+    margin: 1rem auto;
 
     // ====== HEADER TEXT ======
     .header__text{
         display: flex;
         justify-content:space-between;
-        font-size: 1.6rem;
+        font-size: 1rem;
         margin: 1.5rem auto;
+        color: $VeryLightGray;
+
+        h2 {
+            letter-spacing: 10px;
+        }
+
+        button {
+            cursor: pointer;
+            width: 25px;
+            height: 25px;
+            background: url("../img/icon-moon.svg");
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position :center center;
+            border: none;
+            transition: .4s ease-in-out
+        }
     }
 
     // ====== TASK INPUT ======
@@ -54,12 +133,14 @@ body {
         padding: .5rem 0;
         border-radius: .5rem;
         background: $VeryLightGray;
+        transition: .4s ease-in-out;
         
         
         button{
             cursor: pointer;
-            height: 30px;
-            width: 30px;
+            padding: .8rem;
+            background: none;
+            border: 1px solid $LightGrayishBlue;
             border-radius: 50%;
             margin-left: 10px;
         }
@@ -82,38 +163,62 @@ body {
         background: $VeryLightGray;
         border-top-left-radius: .5rem;
         border-top-right-radius: .5rem;
+        min-height: 3rem;
+        padding-top: .5rem;
+        transition: .4s ease-in-out;
+        // overflow: scroll;
+        // overflow-x: hidden;
         
         li {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 1rem;
-            overflow: hidden;
-            font-size: .7rem;
+            padding: 1rem 1.5rem;
+            overflow-X: hidden;
+            font-size:  .9rem;
             border-bottom: 1px solid $VeryLightGrayishBlue;
             
             label {
                 display: flex;
                 align-items: center;
+                font-weight: 700;
+                color: #8e90a5;
                 
-                button {
+                input {
+                    cursor: pointer;
                     width: 25px;
                     height: 25px;
                     margin-right: 10px;
-                    background: url("../img/icon-check.svg"), $VeryDarkBlue;
-                    background-repeat: no-repeat;
-                    background-position: center center;
+                    background: none;
+                    border-radius: 50%;
+                    vertical-align: middle;
                     border: 1px solid $LightGrayishBlue;
                     border-radius: 50%;
+                    appearance: none;
+                    -webkit-appearance: none;
+                    transition: .4s ease-in-out;
+                }
+                
+                :checked {
+                    border: none;
+                    background: url("../img/icon-check.svg"), linear-gradient(to right bottom, #78b7ee, #75abf2, #7c9ef4, #8c8ef1, #a07ce8);;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+
+                p.checked {
+                    text-decoration: line-through;
                 }
             }
-
+            
             .bx-x {
+                cursor: pointer;
+                color: #3a3c55;
                 font-size: 2rem;
             }
         }
     }
-
+    
     .options {
         display:flex;
         align-items: center;
@@ -123,6 +228,7 @@ body {
         border-bottom-left-radius: .5rem;
         border-bottom-right-radius: .5rem;
         color: $DarkGrayishBlue;
+        transition: .4s ease-in-out;
         
         .left__container {
             display: flex;
@@ -132,18 +238,69 @@ body {
                 margin-left: 5px;
             }
         }
-    }
 
+        .clear__button {
+            cursor: pointer;
+            transition: .4s ease-in-out;
+        }
+
+    }
+    
     
     // ====== CONTROLS ======
     .filters {
         display: flex;
         align-items: center;
-        justify-content: space-around;
+        justify-content: center;
         padding: 1rem;
         margin: 1rem 0;
         background: $VeryLightGray;
         border-radius: .5rem;
+        transition: .4s ease-in-out;
+        
+        span {
+            color: $DarkGrayishBlue;
+            font-weight: 700;
+            margin: 0 .6rem;
+            cursor: pointer;
+            transition: .4s ease-in-out;
+
+        }
+        
+        :hover {
+            color: $VeryLightGrayishBlue;
+        }
+
+        .active {
+            color: $activeLink;
+        }
+    }
+
+    .dragMsg {
+        margin: 3rem;
+        font-size: 1rem;
+        color: $DarkGrayishBlue;
+        text-align: center;
     }
     
+}
+
+@media screen and (min-width: 768px) {
+
+    body {
+        background: $LightGrayishBlue;
+        background-repeat: no-repeat;
+        background-position: center top;
+        background-size: 100% 40%;
+        transform: .4s ease-in-out;
+        
+    }
+    
+    .dark {
+        background: $VeryDarkBlue;
+        background-repeat: no-repeat;
+        background-position: top center;
+        background-size: 100% 40%;
+    }
+
 }
