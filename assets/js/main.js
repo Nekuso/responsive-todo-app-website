@@ -38,7 +38,7 @@ filters.forEach(btn => {
 
 
 function showTodo(filter) {
-    // todoCount.innerHTML = todos.length;
+    todoCount.innerHTML = todos.length;
     let li = "";
     if(todos){
         todos.forEach((todo, id) => {
