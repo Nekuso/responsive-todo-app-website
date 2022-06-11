@@ -116,4 +116,6 @@ dragMsg.onclick = function () {
 	var state = sortable.option("disabled"); // get
 
 	sortable.option("disabled", !state); // set
+  
+    dragMsg.innerHTML = state ? 'Drag and drop reorder list | enabled' : 'Drag and drop reorder list | disabled';
 };

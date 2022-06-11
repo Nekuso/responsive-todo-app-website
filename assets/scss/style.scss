@@ -299,7 +299,7 @@ body {
 
     .dragMsg {
         cursor: pointer;
-        margin: 3rem;
+        padding: 15px 0;
         font-size: 1rem;
         color: $DarkGrayishBlue;
         text-align: center;
@@ -324,6 +324,10 @@ body {
 
     .wrapper {
         max-width: 500px;
+
+        .dragMsg {
+            font-size: 1rem;
+        }
     }
     
     .dark {
@@ -332,4 +336,5 @@ body {
         background-position: top center;
         background-size: 100% 40%;
     }
+
 }
