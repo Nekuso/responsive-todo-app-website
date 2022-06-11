@@ -231,10 +231,23 @@ body {
                 }
             }
             
-            .bx-x {
-                cursor: pointer;
-                color: #3a3c55;
-                font-size: 2rem;
+
+            .liOptions{
+                display: flex;
+                align-items: center;
+
+                .bxs-pencil {
+                    cursor: pointer;
+                    color: #3a3c55;
+                    margin-right: 3px;
+                    font-size: 1.4rem;
+                }
+                
+                .bx-x {
+                    cursor: pointer;
+                    color: #3a3c55;
+                    font-size: 2rem;
+                }
             }
         }
     }

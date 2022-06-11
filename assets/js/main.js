@@ -8,6 +8,9 @@ todoCount = document.querySelector(".count");
 dragMsg = document.querySelector(".dragMsg")
 drag = document.querySelector(".drag")
 
+let editId;
+let isEditedTask = false;
+
 // DARK MODE
 const darkmode = document.querySelector('.dark__toggle'),body = document.querySelector('.page');
 
@@ -50,14 +53,24 @@ function showTodo(filter) {
                 <input onclick="updateStatus(this)" type="checkbox" id="${id}" ${isCompleted}></input>
                 <p class="${isCompleted}">${todo.name}</p>
                 </label>
-                <i onclick="deleteTask(${id})" class='bx bx-x'></i>
+                <div class="liOptions">
+                    <i onclick="editTask(${id}, '${todo.name}')" class='bx bxs-pencil'></i>
+                    <i onclick="deleteTask(${id})" class='bx bx-x'></i>
+                </div>
                 </li>`;
             }
         });
     }
     taskBox.innerHTML = li;
 }
-showTodo("all");
+// showTodo("all");
+
+// Edit a list task
+function editTask(taskId, taskName) {
+    editId = taskId;
+    isEditedTask = true;
+    taskInput.value = taskName; 
+}
 
 // Delete a list task
 function deleteTask(deleteId) {
@@ -96,11 +109,17 @@ taskInput.addEventListener("keyup", e => {
     
     let userTask = taskInput.value.trim();
     if(e.key == "Enter" && userTask){
-        if(!todos) {
-            todos = [];
+        if(!isEditedTask){
+            if(!todos) {
+                todos = [];
+            }
+            let taskInfo = {name: userTask, status: "pending"};
+            todos.push(taskInfo);
+            
+        } else {
+            isEditedTask = false;
+            todos[editId].name = userTask;
         }
-        let taskInfo = {name: userTask, status: "pending"};
-        todos.push(taskInfo);
         localStorage.setItem("todo-list", JSON.stringify(todos));
         showTodo("all");
         taskInput.value = "";
@@ -116,6 +135,6 @@ dragMsg.onclick = function () {
 	var state = sortable.option("disabled"); // get
 
 	sortable.option("disabled", !state); // set
-  
+
     dragMsg.innerHTML = state ? 'Drag and drop reorder list | enabled' : 'Drag and drop reorder list | disabled';
 };
