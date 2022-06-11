@@ -8,12 +8,6 @@ todoCount = document.querySelector(".count");
 dragMsg = document.querySelector(".dragMsg")
 drag = document.querySelector(".drag")
 
-var active = 0;
-var completed = 0;
-var result = completed - active;
-todoCount.innerHTML = result;
-
-
 // DARK MODE
 const darkmode = document.querySelector('.dark__toggle'),body = document.querySelector('.page');
 
@@ -41,6 +35,7 @@ filters.forEach(btn => {
         document.querySelector("span.active").classList.remove("active");
         btn.classList.add("active");
         showTodo(btn.id);
+        todoCount.innerHTML = todos.length;
     });
 });
 
@@ -110,17 +105,19 @@ taskInput.addEventListener("keyup", e => {
         showTodo("all");
         taskInput.value = "";
         todoCount.innerHTML = todos.length;
-        active++;
     }
 });
 
 // Draggable function
-dragMsg.onclick = () => {
-    taskBox.classList.toggle();
-}
 
+var draggable = true;
+
+dragMsg.onclick = () => {
+    draggable = true;
+}
 
 new Sortable (drag, {
     animation: 150,
-    ghostClass: 'blue-background-class'
+    ghostClass: 'blue-background-class',
+    sort: draggable
 }); 
