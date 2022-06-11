@@ -38,7 +38,7 @@ filters.forEach(btn => {
 
 
 function showTodo(filter) {
-    todoCount.innerHTML = todos.length;
+    // todoCount.innerHTML = todos.length;
     let li = "";
     if(todos){
         todos.forEach((todo, id) => {
@@ -104,7 +104,7 @@ taskInput.addEventListener("keyup", e => {
 });
 
 // Draggable function
-new Sortable (taskBox, {
-    animation: 150,
-    ghostClass: 'blue-background-class'
-});
+// new Sortable (taskBox, {
+//     animation: 150,
+//     ghostClass: 'blue-background-class'
+// });
