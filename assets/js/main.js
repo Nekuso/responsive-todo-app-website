@@ -112,7 +112,7 @@ taskInput.addEventListener("keyup", e => {
 });
 
 // Draggable function
-// new Sortable (taskBox, {
-    //     animation: 150,
-    //     ghostClass: 'blue-background-class'
-    // }); 
+new Sortable (taskBox, {
+        animation: 150,
+        ghostClass: 'blue-background-class'
+    }); 
