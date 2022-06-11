@@ -1,6 +1,6 @@
 # Responsive Todo app-website
 
-- Live Site URL: [https://nekuso.github.io/responsive-todo-app-website/](https://your-live-site-url.com)
+- Live Site URL: [https://nekuso.github.io/responsive-todo-app-website/](https://nekuso.github.io/responsive-todo-app-website/)
 
 ### Responsive Todo app website
 - Responsive Todo app website Using HTML CSS & JavaScript
