@@ -37,7 +37,6 @@ filters.forEach(btn => {
     });
 });
 
-
 function showTodo(filter) {
     todoCount.innerHTML = todos.length;
     let li = "";
