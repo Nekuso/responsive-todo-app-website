@@ -110,14 +110,11 @@ taskInput.addEventListener("keyup", e => {
 
 // Draggable function
 
+var sortable = Sortable.create(taskBox);
 
-dragMsg.onclick = () => {
-    taskBox.classList.toggle("drag");
+dragMsg.onclick = function () {
+	var state = sortable.option("disabled"); // get
 
-    new Sortable (taskBox, {
-        animation: 150,
-        ghostClass: 'blue-background-class',
-    }); 
-
-}
-
+	sortable.option("disabled", !state); // set
+  
+};
