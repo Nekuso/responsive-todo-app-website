@@ -38,7 +38,7 @@ body {
     background-repeat: no-repeat;
     background-position: top center;
     background-size: 100% 40%;
-    transform: .4s ease-in-out;
+    transition: .4s ease-in-out;
     
 }
 
@@ -48,6 +48,7 @@ body {
     background-repeat: no-repeat;
     background-position: top center;
     background-size: 100% 40%;
+    transition: .4s ease-in-out;
     
     .wrapper {
         .header__text {
@@ -297,6 +298,7 @@ body {
     }
 
     .dragMsg {
+        cursor: pointer;
         margin: 3rem;
         font-size: 1rem;
         color: $DarkGrayishBlue;

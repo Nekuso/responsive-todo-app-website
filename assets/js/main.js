@@ -5,11 +5,13 @@ clearAll = document.querySelector(".clear__button"),
 taskBox = document.querySelector(".task__box");
 enterBtn = document.querySelector(".input__button");
 todoCount = document.querySelector(".count");
+dragMsg = document.querySelector(".dragMsg")
+drag = document.querySelector(".drag")
+
 var active = 0;
 var completed = 0;
 var result = completed - active;
 todoCount.innerHTML = result;
-
 
 
 // DARK MODE
@@ -26,6 +28,7 @@ enterBtn.addEventListener("click", () => {
     todos.push(taskInfo);
     localStorage.setItem("todo-list", JSON.stringify(todos));
     showTodo("all");
+    todoCount.innerHTML = todos.length;
 });
 
 
@@ -112,7 +115,12 @@ taskInput.addEventListener("keyup", e => {
 });
 
 // Draggable function
-new Sortable (taskBox, {
+dragMsg.onclick = () => {
+    taskBox.classList.toggle();
+}
+
+
+new Sortable (drag, {
     animation: 150,
     ghostClass: 'blue-background-class'
 }); 
