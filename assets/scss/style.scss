@@ -10,6 +10,7 @@ $LightGrayishBlue: hsl(233 ,11% ,84% );
 $DarkGrayishBlue: hsl(236 ,9%, 61%) ;
 $VeryDarkGrayishBlue: hsl(235 ,19% ,35% );
 $activeLink: #2d54ad; 
+$activeLinkHover: #6888d3; 
 
 
 //DarkTheme
@@ -39,7 +40,27 @@ body {
     background-position: top center;
     background-size: 100% 40%;
     transition: .4s ease-in-out;
-    
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: #888;
+border-radius:.5rem;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #555;
 }
 
 // DARK MODE
@@ -93,6 +114,18 @@ body {
         .controls {
             .filters{
                 background: $VeryDarkDesaturatedBlue;
+            }
+        }
+
+        .git {
+            margin: 2.5rem 0;
+            a {
+                font-weight: 600;
+                border-radius:.5rem;
+                color: $VeryLightGray;
+                padding: .7rem;
+                background: $VeryDarkDesaturatedBlue;
+                
             }
         }
     }
@@ -154,6 +187,7 @@ body {
         border-radius: .5rem;
         background: $VeryLightGray;
         transition: .4s ease-in-out;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         
         
         button{
@@ -183,9 +217,10 @@ body {
         background: $VeryLightGray;
         border-top-left-radius: .3rem;
         border-top-right-radius: .3rem;
-        min-height: 12rem;
+        min-height: 15rem;
         padding-top: .5rem;
         transition: .4s ease-in-out;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         // overflow: scroll;
         // overflow-x: hidden;
         
@@ -257,11 +292,12 @@ body {
         display:flex;
         align-items: center;
         justify-content: space-between;
-        padding: 1.5rem;
+        padding: 1rem 1.5rem;
         background: $VeryLightGray;
         border-bottom-left-radius: .3rem;
         border-bottom-right-radius: .3rem;
         color: $DarkGrayishBlue;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         transition: .4s ease-in-out;
         
         .left__container {
@@ -291,6 +327,7 @@ body {
         background: $VeryLightGray;
         border-radius: .5rem;
         transition: .4s ease-in-out;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         
         span {
             color: $DarkGrayishBlue;
@@ -298,13 +335,13 @@ body {
             margin: 0 .6rem;
             cursor: pointer;
             transition: .4s ease-in-out;
-
+            
         }
         
         :hover {
-            color: $VeryLightGrayishBlue;
+            color: $activeLinkHover;
         }
-
+        
         .active {
             color: $activeLink;
         }
@@ -312,12 +349,40 @@ body {
 
     .dragMsg {
         cursor: pointer;
-        padding: 15px 0;
+        margin: 40px auto;
         font-size: 1rem;
         color: $DarkGrayishBlue;
         text-align: center;
     }
+
+    .git {
+        display: inline-block;
+        margin: 2.5rem 0;
+        transition: .4s ease-in-out;
+        box-shadow: 0px 10px 0px -100px rgba(0,0,0,0.1);
+        border-radius:.5rem;
+        a {
+            height: 6rem;
+            font-weight: 600;
+            border-radius:.5rem;
+            color: $VeryDarkBlue;
+            margin: 2rem 0;
+            padding: .7rem;
+            background: $VeryLightGray;
+            transition: .4s ease-in-out;
+        }
+        
+        a:hover {
+            transition: .4s ease-in-out;
+            box-shadow: 0px 10px 11px -6px rgba(0,0,0,0.1);
+
+        }
+    }
     
+    .git:hover{
+        transform: scale(110%);
+    }
+
 }
 
 @media screen and (min-width: 769px) {
@@ -341,6 +406,7 @@ body {
         .dragMsg {
             font-size: 1rem;
         }
+        
     }
     
     .dark {
@@ -349,5 +415,6 @@ body {
         background-position: top center;
         background-size: 100% 40%;
     }
+
 
 }
