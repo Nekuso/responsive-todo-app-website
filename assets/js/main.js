@@ -5,7 +5,7 @@ clearAll = document.querySelector(".clear__button"),
 taskBox = document.querySelector(".task__box");
 enterBtn = document.querySelector(".input__button");
 todoCount = document.querySelector(".count");
-tododCount = 0;
+todoCount = 0;
 
 
 // DARK MODE
