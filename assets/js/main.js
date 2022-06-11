@@ -7,7 +7,7 @@ enterBtn = document.querySelector(".input__button");
 todoCount = document.querySelector(".count");
 var active = 0;
 var completed = 0;
-var result = active - completed
+var result = completed - active;
 todoCount.innerHTML = result;
 
 
@@ -66,7 +66,7 @@ function deleteTask(deleteId) {
     todos.splice(deleteId, 1);
     localStorage.setItem("todo-list", JSON.stringify(todos));
     showTodo("all");
-    // todoCount.innerHTML = todos.length;
+    todoCount.innerHTML = todos.length;
     
 }
 
@@ -75,7 +75,7 @@ clearAll.addEventListener('click', () => {
     todos.splice(0, todos.length);
     localStorage.setItem("todo-list", JSON.stringify(todos));
     showTodo("all");
-    // todoCount.innerHTML =  todos.length;
+    todoCount.innerHTML =  todos.length;
 })
 
 // Update if it's pending or completed
@@ -106,13 +106,13 @@ taskInput.addEventListener("keyup", e => {
         localStorage.setItem("todo-list", JSON.stringify(todos));
         showTodo("all");
         taskInput.value = "";
-        // todoCount.innerHTML = todos.length;
+        todoCount.innerHTML = todos.length;
         active++;
     }
 });
 
 // Draggable function
 new Sortable (taskBox, {
-        animation: 150,
-        ghostClass: 'blue-background-class'
-    }); 
+    animation: 150,
+    ghostClass: 'blue-background-class'
+}); 
