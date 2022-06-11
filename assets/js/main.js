@@ -5,7 +5,11 @@ clearAll = document.querySelector(".clear__button"),
 taskBox = document.querySelector(".task__box");
 enterBtn = document.querySelector(".input__button");
 todoCount = document.querySelector(".count");
-todoCount = 0;
+var active = 0;
+var completed = 0;
+var result = active - completed
+todoCount.innerHTML = result;
+
 
 
 // DARK MODE
@@ -27,18 +31,17 @@ enterBtn.addEventListener("click", () => {
 
 let todos = JSON.parse(localStorage.getItem("todo-list"));
 
+
 // FILTERS SORT
 filters.forEach(btn => {
     btn.addEventListener("click", () => {
         document.querySelector("span.active").classList.remove("active");
         btn.classList.add("active");
         showTodo(btn.id);
-
     });
 });
 
 function showTodo(filter) {
-    todoCount.innerHTML = todos.length;
     let li = "";
     if(todos){
         todos.forEach((todo, id) => {
@@ -63,6 +66,8 @@ function deleteTask(deleteId) {
     todos.splice(deleteId, 1);
     localStorage.setItem("todo-list", JSON.stringify(todos));
     showTodo("all");
+    // todoCount.innerHTML = todos.length;
+    
 }
 
 // Delete all list task
@@ -70,6 +75,7 @@ clearAll.addEventListener('click', () => {
     todos.splice(0, todos.length);
     localStorage.setItem("todo-list", JSON.stringify(todos));
     showTodo("all");
+    // todoCount.innerHTML =  todos.length;
 })
 
 // Update if it's pending or completed
@@ -100,11 +106,13 @@ taskInput.addEventListener("keyup", e => {
         localStorage.setItem("todo-list", JSON.stringify(todos));
         showTodo("all");
         taskInput.value = "";
+        // todoCount.innerHTML = todos.length;
+        active++;
     }
 });
 
 // Draggable function
 // new Sortable (taskBox, {
-//     animation: 150,
-//     ghostClass: 'blue-background-class'
-// });
+    //     animation: 150,
+    //     ghostClass: 'blue-background-class'
+    // }); 
