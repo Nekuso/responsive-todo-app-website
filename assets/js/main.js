@@ -116,5 +116,4 @@ dragMsg.onclick = function () {
 	var state = sortable.option("disabled"); // get
 
 	sortable.option("disabled", !state); // set
-  
 };
