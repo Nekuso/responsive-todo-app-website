@@ -219,8 +219,12 @@ background: #555;
         border-top-right-radius: .3rem;
         min-height: 15rem;
         padding-top: .5rem;
-        transition: .4s ease-in-out;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        -webkit-transition: opacity .5s ease-in-out;
+        -moz-transition: opacity .5s ease-in-out;
+        -ms-transition: opacity .5s ease-in-out;
+        -o-transition: opacity .5s ease-in-out;
+        transition: opacity .5s ease-in-out;
         // overflow: scroll;
         // overflow-x: hidden;
         
@@ -232,6 +236,7 @@ background: #555;
             overflow-X: hidden;
             font-size:  .9rem;
             border-bottom: 1px solid $VeryLightGrayishBlue;
+            transition: .4s ease-in-out;
             
             label {
                 display: flex;
@@ -416,6 +421,5 @@ background: #555;
         background-position: top center;
         background-size: 100% 40%;
     }
-
 
 }

@@ -6,7 +6,8 @@ taskBox = document.querySelector(".task__box");
 enterBtn = document.querySelector(".input__button");
 todoCount = document.querySelector(".count");
 dragMsg = document.querySelector(".dragMsg")
-drag = document.querySelector(".drag")
+drag = document.querySelector(".drag");
+
 
 let editId;
 let isEditedTask = false;
@@ -54,14 +55,16 @@ function showTodo(filter) {
                 <p class="${isCompleted}">${todo.name}</p>
                 </label>
                 <div class="liOptions">
-                    <i onclick="editTask(${id}, '${todo.name}')" class='bx bxs-pencil'></i>
-                    <i onclick="deleteTask(${id})" class='bx bx-x'></i>
+                <i onclick="editTask(${id}, '${todo.name}')" class='bx bxs-pencil'></i>
+                <i onclick="deleteTask(${id})" class='bx bx-x'></i>
                 </div>
-                </li>`;
-            }
-        });
+                    </li>`;
+                }
+            });
     }
     taskBox.innerHTML = li;
+    nodeCount = todos.length;
+    
 }
 // showTodo("all");
 
@@ -77,8 +80,7 @@ function deleteTask(deleteId) {
     todos.splice(deleteId, 1);
     localStorage.setItem("todo-list", JSON.stringify(todos));
     showTodo("all");
-    todoCount.innerHTML = todos.length;
-    
+    todoCount.innerHTML = todos.length;    
 }
 
 // Delete all list task
@@ -95,10 +97,14 @@ function updateStatus(selectedTask){
     if(selectedTask.checked){
         taskName.classList.add("checked");
         todos[selectedTask.id].status = "completed";
+        nodeCount--;
+        todoCount.innerHTML = nodeCount;
     }
     else {
         taskName.classList.remove("checked");
         todos[selectedTask.id].status = "pending";
+        nodeCount++;
+        todoCount.innerHTML = nodeCount;
     }
     localStorage.setItem("todo-list", JSON.stringify(todos));
     
@@ -121,9 +127,12 @@ taskInput.addEventListener("keyup", e => {
             todos[editId].name = userTask;
         }
         localStorage.setItem("todo-list", JSON.stringify(todos));
+        
         showTodo("all");
+        
         taskInput.value = "";
-        todoCount.innerHTML = todos.length;
+        nodeCount = todos.length;
+        todoCount.innerHTML = nodeCount;
     }
 });
 
@@ -132,8 +141,8 @@ taskInput.addEventListener("keyup", e => {
 var sortable = Sortable.create(taskBox);
 
 dragMsg.onclick = function () {
-	var state = sortable.option("disabled"); // get
-
+    var state = sortable.option("disabled"); // get
+    
 	sortable.option("disabled", !state); // set
 
     dragMsg.innerHTML = state ? 'Drag and drop reorder list | enabled' : 'Drag and drop reorder list | disabled';
