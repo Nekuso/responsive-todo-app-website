@@ -3,7 +3,7 @@
 - Live Site URL: [https://nekuso.github.io/responsive-todo-app-website/](https://nekuso.github.io/responsive-todo-app-website/)
 
 ### Responsive Todo app website
-- Responsive Todo app website Using HTML CSS & JavaScript
+- Responsive Todo app website Using HTML SCSS & JavaScript
 - Developed first with the Mobile First methodology, then for desktop.
 - View the optimal layout for the app depending on their device's screen size
 - See hover states for all interactive elements on the page
