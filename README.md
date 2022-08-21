@@ -2,6 +2,7 @@
 
 - Live Site URL: [https://nekuso.github.io/responsive-todo-app-website/](https://nekuso.github.io/responsive-todo-app-website/)
 
+
 ### Responsive Todo app website
 - Responsive Todo app website Using HTML SCSS & JavaScript
 - Developed first with the Mobile First methodology, then for desktop.
@@ -14,6 +15,5 @@
 - Clear all todos
 - Toggle light and dark mode
 - **Bonus**: Drag and drop to reorder items on the list
-
 
 ![preview img](/preview.png)
