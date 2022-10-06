@@ -16,5 +16,4 @@
 - Toggle light and dark mode
 - **Bonus**: Drag and drop to reorder items on the list
 
-
 ![preview img](/preview.png)
